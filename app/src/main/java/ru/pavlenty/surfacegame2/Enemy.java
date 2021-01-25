@@ -50,7 +50,7 @@ public class Enemy {
                 sr = gen.nextInt(maxY / 2);
             }
         }
-        x -= playerSpeed * 8;
+        x -= playerSpeed * 4;
         sr += gen.nextInt(50) - 25;
         if(sr < 30){sr += 30;}
         if(sr > (maxY - 30)){sr -= 30;}
