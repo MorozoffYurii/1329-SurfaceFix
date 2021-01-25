@@ -7,7 +7,7 @@ import android.util.Log;
 
 import java.util.Random;
 
-public class Friend {
+public class Enemy {
 
     private Bitmap bitmap;
     private int x;
@@ -22,10 +22,10 @@ public class Friend {
 
     private int sr;
 
-    public Friend(Context context, int screenX, int screenY) {
+    public Enemy(Context context, int screenX, int screenY) {
         Log.d("RRR screenX",Integer.toString(screenX));
 
-        this.bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.friend);
+        this.bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.enemy);
         this.maxX = screenX;
         this.maxY = screenY;
         this.minX = 0;

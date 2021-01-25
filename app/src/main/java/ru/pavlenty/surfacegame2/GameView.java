@@ -60,6 +60,7 @@ public class GameView extends SurfaceView implements Runnable {
         // добавляем новый объект - Friend
         friend = new Friend(context, screenX, screenY);
 
+
         this.screenX = screenX;
         countMisses = 0;
         isGameOver = false;
