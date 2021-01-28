@@ -42,7 +42,7 @@ public class Friend {
     public void update(int playerSpeed){
         Random gen = new Random();
         if(x < -this.bitmap.getWidth()){
-            x = 5000;
+            x = 4000;
             if(y < maxY / 2){
                 sr = maxY / 2 + gen.nextInt(maxY / 2);
             }
@@ -57,7 +57,7 @@ public class Friend {
         if(sr < 60){sr += 30;}
         if(sr > (maxY - 60)){sr -= 30;}
         y = sr;
-        Log.d("Y=", Integer.toString(y));
+        //Log.d("Y=", Integer.toString(y));
     }
 
     public Bitmap getBitmap() {

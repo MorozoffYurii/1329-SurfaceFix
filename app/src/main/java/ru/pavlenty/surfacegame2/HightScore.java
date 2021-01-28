@@ -1,5 +1,6 @@
 package ru.pavlenty.surfacegame2;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ public class HightScore extends AppCompatActivity {
 
     SharedPreferences sharedPreferences;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

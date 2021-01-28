@@ -11,7 +11,7 @@ public class Player {
     private int y;
     private int speed = 0;
     private boolean boosting;
-    private final int GRAVITY = -10;
+    private final int GRAVITY = -14;
     private int maxY;
     private int minY;
 

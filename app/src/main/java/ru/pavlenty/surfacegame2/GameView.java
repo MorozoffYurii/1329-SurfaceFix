@@ -20,6 +20,8 @@ public class GameView extends SurfaceView implements Runnable {
     private Thread gameThread = null;
     private Player player;
     private Friend friend;
+    private Enemy enemy;
+    private Boom boom;
 
     private Paint paint;
     private Canvas canvas;
@@ -51,7 +53,7 @@ public class GameView extends SurfaceView implements Runnable {
         surfaceHolder = getHolder();
         paint = new Paint();
 
-        int starNums = 100;
+        int starNums = 300;
         for (int i = 0; i < starNums; i++) {
             Star s = new Star(screenX, screenY);
             stars.add(s);
@@ -59,6 +61,10 @@ public class GameView extends SurfaceView implements Runnable {
 
         // добавляем новый объект - Friend
         friend = new Friend(context, screenX, screenY);
+
+        enemy = new Enemy(context, screenX, screenY);
+
+        boom = new Boom(context);
 
 
         this.screenX = screenX;
@@ -144,6 +150,20 @@ public class GameView extends SurfaceView implements Runnable {
                     friend.getY(),
                     paint);
 
+            // отрисовка Enemy
+            canvas.drawBitmap(
+                    enemy.getBitmap(),
+                    enemy.getX(),
+                    enemy.getY(),
+                    paint);
+
+            // Boom
+            canvas.drawBitmap(
+                    boom.getBitmap(),
+                    boom.getX(),
+                    boom.getY(),
+                    paint);
+
             if(isGameOver){
                 paint.setTextSize(150);
                 paint.setTextAlign(Paint.Align.CENTER);
@@ -173,6 +193,19 @@ public class GameView extends SurfaceView implements Runnable {
         for (Star s : stars) {
             s.update(player.getSpeed());
         }
+
+        // обновление у Enemy
+        enemy.update(enemy.getSpeed());
+        if(Rect.intersects(player.getDetectCollision(), enemy.getDetectCollision())){
+            killedEnemysound.start();
+            int x = player.getX();
+            int y = player.getY();
+            boom.setX(x);
+            boom.setY(y);
+            this.isGameOver = true;
+        }
+
+
     }
 
     private void control() {
