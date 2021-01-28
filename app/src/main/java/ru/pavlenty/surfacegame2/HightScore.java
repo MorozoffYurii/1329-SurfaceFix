@@ -32,6 +32,5 @@ public class HightScore extends AppCompatActivity {
         textView2.setText("2."+sharedPreferences.getInt("score2",0));
         textView3.setText("3."+sharedPreferences.getInt("score3",0));
         textView4.setText("4."+sharedPreferences.getInt("score4",0));
-
     }
 }
